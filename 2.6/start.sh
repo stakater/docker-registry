@@ -10,8 +10,8 @@ IFS=' ' read -r -a CMD_ARRAY <<< "$COMMAND"
 set -- "${CMD_ARRAY[@]}"
 
 case "$1" in
-    *.yaml|*.yml) set -- su-exec stakater registry serve "$@" ;;
-    serve|garbage-collect|help|-*) set -- su-exec stakater registry "$@" ;;
+    *.yaml|*.yml) set -- registry serve "$@" ;;
+    serve|garbage-collect|help|-*) set -- registry "$@" ;;
 esac
 
 exec "$@"
